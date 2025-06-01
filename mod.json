@@ -11,6 +11,12 @@
 	"version": "v1.0.0",
 	"developer": "Zilko",
 	"description": "Modify the amount of icons in the Main Menu.",
+	"tags": [
+		"customization",
+		"enhancement",
+		"interface",
+		"offline"
+	],
 	"settings": {
 		"icons": {
 			"name": "Amount of Icons",
