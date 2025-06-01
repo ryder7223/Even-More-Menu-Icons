@@ -1,0 +1,29 @@
+{
+	"geode": "4.5.0",
+	"gd": {
+		"win": "2.2074",
+		"android": "2.2074",
+		"mac": "2.2074",
+		"ios": "2.2074"
+	},
+	"id": "zilko.more_menu_icons",
+	"name": "More Menu Icons",
+	"version": "v1.0.0",
+	"developer": "Zilko",
+	"description": "Modify the amount of icons in the Main Menu.",
+	"settings": {
+		"icons": {
+			"name": "Amount of Icons",
+			"type": "int",
+			"min": -1000,
+			"max": 1000,
+			"default": 3
+		},
+		"hide-slider": {
+			"name": "Hide Slider",
+			"description": "Mainly there so people notice u can change it but it can be annoying.",
+			"type": "bool",
+			"default": false
+		}
+	}
+}
