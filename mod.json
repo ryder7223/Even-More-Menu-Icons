@@ -11,6 +11,9 @@
 	"version": "v1.0.0",
 	"developer": "Zilko",
 	"description": "Modify the amount of icons in the Main Menu.",
+	"links": {
+		"source": "https://github.com/ZiLko/More-Menu-Icons"
+	},
 	"tags": [
 		"customization",
 		"enhancement",
