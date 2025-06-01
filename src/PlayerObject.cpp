@@ -57,7 +57,7 @@ void ProPlayerObject::tryJump(bool isDestroyingPlayer) {
     else if (m_isBall || m_isSpider)
         chance = -1.f;
 
-    static_cast<float>(rand()) / 32767.f <= chance && (
+    static_cast<float>(rand()) / RAND_MAX <= chance && (
         m_isOnGround2
         || m_isShip
         || m_isBird
@@ -84,7 +84,7 @@ void ProPlayerObject::reset(bool videoOptionsOpen) {
     }
 
     setPosition({
-        -100.f - rand() / 32767.f * 500.f,
+        -100.f - static_cast<float>(rand()) / RAND_MAX * 500.f,
         getPosition().y + 4.f
     });
 
@@ -97,11 +97,11 @@ void ProPlayerObject::reset(bool videoOptionsOpen) {
     toggleSpiderMode(false, false);
     toggleSwingMode(false, false);
 
-    m_hasGlow = rand() / 32767.f > 0.8f;
+    m_hasGlow = static_cast<float>(rand()) / RAND_MAX > 0.8f;
 
-    int colorGlow = static_cast<int>(rand() / 32767.f * 108.f);
-    int color1 = static_cast<int>(rand() / 32767.f * 108.f);
-    int color2 = static_cast<int>(rand() / 32767.f * 108.f);
+    int colorGlow = static_cast<int>(static_cast<float>(rand()) / RAND_MAX * 108.f);
+    int color1 = static_cast<int>(static_cast<float>(rand()) / RAND_MAX * 108.f);
+    int color2 = static_cast<int>(static_cast<float>(rand()) / RAND_MAX * 108.f);
 
     if (m_hasGlow)
         enableCustomGlowColor(gm->colorForIdx(colorGlow));
@@ -113,39 +113,39 @@ void ProPlayerObject::reset(bool videoOptionsOpen) {
     flipGravity(false, false);
     update(0.f);
 
-    float r = rand() / 32767.f;
+    float r = static_cast<float>(rand()) / RAND_MAX;
 
     if (!videoOptionsOpen) {
         if (r < 0.12f && !m_isShip) {
             toggleFlyMode(true, false);
-            int frame = static_cast<int>(rand() / 32767.f * 169.f + 0.5f);
+            int frame = static_cast<int>(static_cast<float>(rand()) / RAND_MAX * 169.f + 0.5f);
             updatePlayerShipFrame(frame);
         } else if (r < 0.24f && !m_isBall) {
             toggleRollMode(true, false);
             releaseButton(PlayerButton::Jump);
-            int frame = std::max(1, static_cast<int>(rand() / 32767.f * 118.f + 0.5f));
+            int frame = std::max(1, static_cast<int>(static_cast<float>(rand()) / RAND_MAX * 118.f + 0.5f));
             updatePlayerRollFrame(frame);
         } else if (r < 0.36f && !m_isBird) {
             toggleBirdMode(true, false);
-            int frame = static_cast<int>(rand() / 32767.f * 149.f + 0.5f);
+            int frame = static_cast<int>(static_cast<float>(rand()) / RAND_MAX * 149.f + 0.5f);
             updatePlayerBirdFrame(frame);
         } else if (r < 0.48f || m_isDart) {
             toggleDartMode(true, false);
-            int frame = static_cast<int>(rand() / 32767.f * 96.f + 0.5f);
+            int frame = static_cast<int>(static_cast<float>(rand()) / RAND_MAX * 96.f + 0.5f);
             updatePlayerDartFrame(frame);
         } else if (r < 0.6f || m_isRobot) {
             toggleRobotMode(true, false);
-            int frame = std::max(1, std::min(68, static_cast<int>(rand() / 32767.f * 68.f + 0.5f)));
+            int frame = std::max(1, std::min(68, static_cast<int>(static_cast<float>(rand()) / RAND_MAX * 68.f + 0.5f)));
             createRobot(frame);
         } else if (r < 0.7f || m_isSpider) {
             toggleSpiderMode(true, false);
             releaseButton(PlayerButton::Jump);
-            int frame = std::max(1, std::min(69, static_cast<int>(rand() / 32767.f * 69.f + 0.5f)));
+            int frame = std::max(1, std::min(69, static_cast<int>(static_cast<float>(rand()) / RAND_MAX * 69.f + 0.5f)));
             createSpider(frame);
         } else if (r < 0.8f || m_isSwing) {
             toggleSwingMode(true, false);
             releaseButton(PlayerButton::Jump);
-            int frame = static_cast<int>(rand() / 32767.f * 43.f + 0.5f);
+            int frame = static_cast<int>(static_cast<float>(rand()) / RAND_MAX * 43.f + 0.5f);
             updatePlayerSwingFrame(frame);
         } else {
             toggleFlyMode(false, false);
@@ -157,16 +157,16 @@ void ProPlayerObject::reset(bool videoOptionsOpen) {
             toggleSwingMode(false, false);
 
             updatePlayerFrame(
-                std::max(1, static_cast<int>(rand() / 32767.f * 485.f + 0.5f))
+                std::max(1, static_cast<int>(static_cast<float>(rand()) / RAND_MAX * 485.f + 0.5f))
             );
         }
 
-        togglePlayerScale((rand() / 32767.f) <= 0.1f, false);
+        togglePlayerScale((static_cast<float>(rand()) / RAND_MAX) <= 0.1f, false);
     }
 
     updateGlowColor();
 
-    float timeModRand = rand() / 32767.f;
+    float timeModRand = static_cast<float>(rand()) / RAND_MAX;
     float timeMod = 1.3f;
     if (timeModRand >= 0.65f) timeMod = 0.9f;
     else if (timeModRand >= 0.6f) timeMod = 1.6f;
