@@ -2,6 +2,8 @@
 
 Letsgooo you can now change how many icons appear in the main menu!!
 
+Thanks SawbladeGD / redfire07 for the mod idea and for letting me steal it.
+
 # Information
 
 * Destroyed players that were spawned by the mod will not count torwards the "destroyed players" stat.
