@@ -19,12 +19,14 @@ bool ProMenuLayer::init() {
     slider->setScale(0.525f);
     slider->setContentSize({0, 0});
     slider->setPosition(getContentSize() - ccp(63, 9));
+    slider->setID("icons-slider"_spr);
 
     addChild(slider);
     
     CCLabelBMFont* lbl = CCLabelBMFont::create("Menu Icons", "goldFont.fnt");
     lbl->setScale(0.425f);
     lbl->setPosition(getContentSize() - ccp(63, 20));
+    lbl->setID("icons-label"_spr);
     
     addChild(lbl);
 
