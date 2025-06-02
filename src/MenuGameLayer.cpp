@@ -10,6 +10,9 @@ bool ProMenuGameLayer::ccTouchBegan(CCTouch* touch, CCEvent* event) {
     for (PlayerObject* player : f->m_players) {
         cocos2d::CCPoint pos = player->getPosition();
 
+        if (getScaleX() < 0)
+            pos.x = abs(CCDirector::get()->getWinSize().width - pos.x);
+
         if (pos.x <= 50) continue;
 
         if (ccpDistance(touchPos, pos) < 30) {

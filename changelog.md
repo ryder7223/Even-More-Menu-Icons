@@ -2,6 +2,7 @@
 
 * Added known players suport.
 * Fixed wave trail being too thin.
+* Fixed killing players being off when negative players.
 
 # v1.0.1
 
