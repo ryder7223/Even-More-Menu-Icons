@@ -1,3 +1,8 @@
+# v1.0.2
+
+* Added known players suport.
+* Fixed wave trail being too thin.
+
 # v1.0.1
 
 * Add sawy

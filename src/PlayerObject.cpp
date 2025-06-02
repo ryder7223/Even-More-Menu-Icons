@@ -1,3 +1,5 @@
+#include "KnownPlayers.h"
+
 #include "PlayerObject.hpp"
 
 void ProPlayerObject::updateMenu(float dt, float deltaCount, bool videoOptionsOpen) {
@@ -7,6 +9,8 @@ void ProPlayerObject::updateMenu(float dt, float deltaCount, bool videoOptionsOp
     update(dt * 60.f);
 
     m_totalTime = deltaCount;
+
+    m_waveTrail->m_pulseSize = 1.4f;
 
     float height = 0.f;
 
@@ -96,6 +100,13 @@ void ProPlayerObject::reset(bool videoOptionsOpen) {
     toggleRobotMode(false, false);
     toggleSpiderMode(false, false);
     toggleSwingMode(false, false);
+
+    if (geode::Loader::get()->isModLoaded("iandyhd3.known_players")) {
+        auto event = known_players::events::NextIconModifyPlayerObject(this);
+        event.post();
+
+        if (event.done) return;
+    }
 
     m_hasGlow = static_cast<float>(rand()) / RAND_MAX > 0.8f;
 
